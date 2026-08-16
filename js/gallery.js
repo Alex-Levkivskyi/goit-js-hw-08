@@ -90,11 +90,11 @@ function onGalleryItemClick(event) {
     event.preventDefault();
 
     const clickedImage = event.target;
-    if (!clickedImage.nodeName !== 'IMG') {
+    if (event.target.nodeName !== 'IMG') {
         return;
     }
-    const largeImageURL = clickedImage.dataset.source;
-    const imageAlt = clickedImage.alt;
+    const largeImageURL = event.target.dataset.source;
+    const imageAlt = event.target.alt;
 
     const instance = basicLightbox.create(`
         <div class="modal">
