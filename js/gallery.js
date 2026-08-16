@@ -74,7 +74,7 @@ const galleryMarkup = images
     <img
     class="gallery-image"
     src="${preview}"
-    data-source="{original}"
+    data-source="${original}"
     alt="${description}"
     />
     </a>
@@ -89,8 +89,8 @@ galleryContainer.addEventListener('click', onGalleryItemClick);
 function onGalleryItemClick(event) {
     event.preventDefault();
 
-    const clickedImage = event.target.closest('.gallery-image');
-    if (!clickImage) {
+    const clickedImage = event.target;
+    if (!clickedImage.nodeName !== 'IMG') {
         return;
     }
     const largeImageURL = clickedImage.dataset.source;
